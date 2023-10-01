@@ -1,0 +1,40 @@
+[gd_scene load_steps=10 format=3 uid="uid://bs1xw3dnj13h4"]
+
+[ext_resource type="PackedScene" uid="uid://dbrrwwkg2ejts" path="res://levels/level_base.tscn" id="1_ggj2y"]
+[ext_resource type="Script" path="res://game.gd" id="1_popgk"]
+[ext_resource type="PackedScene" uid="uid://cub5uqnbv8jgg" path="res://ship/ship.tscn" id="2_n0trg"]
+[ext_resource type="PackedScene" uid="uid://di56ke8hol5hb" path="res://game_hud.tscn" id="4_jibuy"]
+[ext_resource type="AudioStream" uid="uid://bnh8k65gpx0ll" path="res://audio/hit.wav" id="5_v6c7v"]
+[ext_resource type="AudioStream" uid="uid://bjf4s6cqb868w" path="res://audio/die.wav" id="6_r1r8x"]
+[ext_resource type="AudioStream" uid="uid://pt8gqtwtswmn" path="res://audio/pickup.wav" id="7_gi5is"]
+[ext_resource type="AudioStream" uid="uid://ccnlpsu8mxwqm" path="res://audio/song.ogg" id="7_o8xun"]
+[ext_resource type="Script" path="res://music.gd" id="8_avox2"]
+
+[node name="game" type="Node2D" node_paths=PackedStringArray("hit_sound", "die_sound", "pickup_sound")]
+script = ExtResource("1_popgk")
+hit_sound = NodePath("hit_sound")
+die_sound = NodePath("die_sound")
+pickup_sound = NodePath("pickup_sound")
+
+[node name="level_base" parent="." instance=ExtResource("1_ggj2y")]
+
+[node name="ship" parent="." instance=ExtResource("2_n0trg")]
+position = Vector2(280, 178)
+
+[node name="hud" parent="." instance=ExtResource("4_jibuy")]
+
+[node name="hit_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_v6c7v")
+
+[node name="die_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_r1r8x")
+
+[node name="pickup_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_gi5is")
+volume_db = -11.321
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_o8xun")
+volume_db = -10.337
+autoplay = true
+script = ExtResource("8_avox2")

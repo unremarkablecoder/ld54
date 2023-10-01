@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://bu8nl6mksqmjs"]
+
+[ext_resource type="Script" path="res://ship/ship_destroy.gd" id="1_ktjfg"]
+[ext_resource type="Texture2D" uid="uid://bn26233q2sqfq" path="res://level_textures/atlas.png" id="2_lw1h5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6lxrd"]
+atlas = ExtResource("2_lw1h5")
+region = Rect2(1024, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g3jgm"]
+atlas = ExtResource("2_lw1h5")
+region = Rect2(1280, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gfs5i"]
+atlas = ExtResource("2_lw1h5")
+region = Rect2(1536, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ga7me"]
+atlas = ExtResource("2_lw1h5")
+region = Rect2(1792, 256, 256, 256)
+
+[node name="ship_destroy" type="Node2D" node_paths=PackedStringArray("bl", "tr", "br", "tl")]
+script = ExtResource("1_ktjfg")
+bl = NodePath("bl")
+tr = NodePath("tr")
+br = NodePath("br")
+tl = NodePath("tl")
+
+[node name="bl" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-9, 25)
+scale = Vector2(0.547, 0.547)
+texture = SubResource("AtlasTexture_6lxrd")
+
+[node name="tr" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(13, -20)
+scale = Vector2(0.547, 0.547)
+texture = SubResource("AtlasTexture_g3jgm")
+
+[node name="tl" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-6, -15)
+scale = Vector2(0.547, 0.547)
+texture = SubResource("AtlasTexture_gfs5i")
+
+[node name="br" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(10, 31)
+scale = Vector2(0.547, 0.547)
+texture = SubResource("AtlasTexture_ga7me")

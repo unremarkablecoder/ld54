@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwep5re5437le"]
+
+[ext_resource type="Texture2D" uid="uid://bn26233q2sqfq" path="res://level_textures/atlas.png" id="1_hq0yw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4m0n2"]
+atlas = ExtResource("1_hq0yw")
+region = Rect2(0, 256, 256, 256)
+
+[node name="scrap4" type="StaticBody2D"]
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(0, -3)
+scale = Vector2(0.295, 0.295)
+texture = SubResource("AtlasTexture_4m0n2")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-33, -11, -15, -31, 34, 10, 1, 3, -3, 24, -22, 18)

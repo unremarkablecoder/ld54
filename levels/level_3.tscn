@@ -1,0 +1,230 @@
+[gd_scene load_steps=16 format=3 uid="uid://sxkr3px05pb4"]
+
+[ext_resource type="PackedScene" uid="uid://caog5o681qg2" path="res://level_parts/big_asteroid.tscn" id="2_lqo7d"]
+[ext_resource type="PackedScene" uid="uid://bku70kpvpm7yj" path="res://level_parts/beam.tscn" id="3_cq028"]
+[ext_resource type="PackedScene" uid="uid://qunlsbosjl06" path="res://level_parts/scrap2.tscn" id="4_ewvub"]
+[ext_resource type="PackedScene" uid="uid://dql2yydp3lht" path="res://level_parts/scrap1.tscn" id="5_n0ubv"]
+[ext_resource type="PackedScene" uid="uid://csgutxuqatsfe" path="res://level_parts/rock.tscn" id="6_783q6"]
+[ext_resource type="PackedScene" uid="uid://3hee1b8htn4l" path="res://level_parts/pod.tscn" id="7_o0jgn"]
+[ext_resource type="PackedScene" uid="uid://bwep5re5437le" path="res://level_parts/scrap4.tscn" id="8_6b7gk"]
+[ext_resource type="PackedScene" uid="uid://dfuh8e3qkhh7m" path="res://level_parts/scrap3.tscn" id="9_7f2j3"]
+[ext_resource type="PackedScene" uid="uid://b5s3csu0l50k5" path="res://level_parts/scrap5.tscn" id="9_p7cqv"]
+[ext_resource type="PackedScene" uid="uid://b3epgl1sqwcmo" path="res://level_parts/scrap6.tscn" id="11_2epnx"]
+
+[sub_resource type="Gradient" id="Gradient_wqysx"]
+colors = PackedColorArray(0, 0, 0, 1, 0.788503, 0.558597, 0.58792, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_eg711"]
+gradient = SubResource("Gradient_wqysx")
+width = 512
+height = 512
+fill_from = Vector2(0, 0.0213675)
+fill_to = Vector2(1, 0.65812)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qvyb2"]
+size = Vector2(530.627, 52)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qqykn"]
+size = Vector2(112.625, 1091.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_in2fi"]
+size = Vector2(650.812, 68)
+
+[node name="level" type="Node2D"]
+
+[node name="bg" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(974, 552)
+scale = Vector2(3.90826, 2.20269)
+texture = SubResource("GradientTexture2D_eg711")
+metadata/_edit_lock_ = true
+
+[node name="start_pos" type="Node2D" parent="."]
+position = Vector2(280, 602)
+rotation = 1.46084
+
+[node name="big_asteroid" parent="." instance=ExtResource("2_lqo7d")]
+position = Vector2(1556, -71)
+
+[node name="big_asteroid2" parent="." instance=ExtResource("2_lqo7d")]
+position = Vector2(1931, 214)
+rotation = 3.99845
+
+[node name="big_asteroid3" parent="." instance=ExtResource("2_lqo7d")]
+position = Vector2(1989, 828)
+rotation = 2.66057
+
+[node name="big_asteroid6" parent="." instance=ExtResource("2_lqo7d")]
+position = Vector2(1111, 83.0001)
+rotation = 3.30092
+
+[node name="big_asteroid7" parent="." instance=ExtResource("2_lqo7d")]
+position = Vector2(847, 1050)
+rotation = 3.30092
+
+[node name="beam2" parent="." instance=ExtResource("3_cq028")]
+position = Vector2(1167, 658)
+rotation = 1.07466
+
+[node name="beam4" parent="." instance=ExtResource("3_cq028")]
+position = Vector2(1562, 974)
+rotation = 1.07466
+
+[node name="beam5" parent="." instance=ExtResource("3_cq028")]
+position = Vector2(1676, 926)
+rotation = -0.359251
+
+[node name="beam13" parent="." instance=ExtResource("3_cq028")]
+position = Vector2(1251, 654)
+rotation = -0.359251
+
+[node name="beam3" parent="." instance=ExtResource("3_cq028")]
+position = Vector2(1864, 594)
+rotation = 1.741
+
+[node name="beam6" parent="." instance=ExtResource("3_cq028")]
+position = Vector2(1194, 429)
+rotation = 1.51487
+
+[node name="beam8" parent="." instance=ExtResource("3_cq028")]
+position = Vector2(782, 723)
+rotation = 1.21856
+
+[node name="beam9" parent="." instance=ExtResource("3_cq028")]
+position = Vector2(716, 432)
+rotation = 1.51487
+
+[node name="beam11" parent="." instance=ExtResource("3_cq028")]
+position = Vector2(836, 37)
+rotation = 3.26717
+
+[node name="beam12" parent="." instance=ExtResource("3_cq028")]
+position = Vector2(512, 56)
+rotation = 2.79941
+
+[node name="beam10" parent="." instance=ExtResource("3_cq028")]
+position = Vector2(731, 597)
+rotation = 1.88154
+
+[node name="beam7" parent="." instance=ExtResource("3_cq028")]
+position = Vector2(1241, 1005)
+rotation = 2.29595
+
+[node name="scrap5" parent="." instance=ExtResource("4_ewvub")]
+position = Vector2(1257, 700)
+
+[node name="scrap16" parent="." instance=ExtResource("4_ewvub")]
+position = Vector2(784, 628)
+
+[node name="scrap23" parent="." instance=ExtResource("4_ewvub")]
+position = Vector2(653, 45)
+rotation = 1.62911
+
+[node name="scrap7" parent="." instance=ExtResource("4_ewvub")]
+position = Vector2(1519, 1015)
+
+[node name="scrap19" parent="." instance=ExtResource("4_ewvub")]
+position = Vector2(707, 539)
+
+[node name="scrap6" parent="." instance=ExtResource("5_n0ubv")]
+position = Vector2(1136, 329)
+rotation = 0.678814
+
+[node name="scrap22" parent="." instance=ExtResource("5_n0ubv")]
+position = Vector2(742, 37)
+rotation = 0.678814
+
+[node name="scrap10" parent="." instance=ExtResource("5_n0ubv")]
+position = Vector2(1314, 1008)
+rotation = 0.678814
+
+[node name="rock2" parent="." instance=ExtResource("6_783q6")]
+position = Vector2(1225, 608)
+rotation = 0.0351638
+
+[node name="rock4" parent="." instance=ExtResource("6_783q6")]
+position = Vector2(744, 813)
+rotation = 0.0351638
+
+[node name="rock5" parent="." instance=ExtResource("6_783q6")]
+position = Vector2(850, 801)
+rotation = -1.2321
+
+[node name="rock3" parent="." instance=ExtResource("6_783q6")]
+position = Vector2(1424, 1014)
+rotation = 0.0351638
+
+[node name="pod" parent="." instance=ExtResource("7_o0jgn")]
+position = Vector2(1518, 360)
+rotation = -0.00906644
+
+[node name="scrap8" parent="." instance=ExtResource("8_6b7gk")]
+position = Vector2(1204, 543)
+rotation = -2.52623
+
+[node name="scrap9" parent="." instance=ExtResource("8_6b7gk")]
+position = Vector2(1647, 977)
+rotation = -1.27039
+
+[node name="scrap18" parent="." instance=ExtResource("8_6b7gk")]
+position = Vector2(774, 498)
+rotation = -1.27039
+
+[node name="scrap11" parent="." instance=ExtResource("8_6b7gk")]
+position = Vector2(1476, 970)
+rotation = -1.27039
+
+[node name="leave_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="leave_area"]
+position = Vector2(237.686, -17)
+shape = SubResource("RectangleShape2D_qvyb2")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="leave_area"]
+position = Vector2(-12, 541)
+shape = SubResource("RectangleShape2D_qqykn")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="leave_area"]
+position = Vector2(329.594, 1092)
+shape = SubResource("RectangleShape2D_in2fi")
+
+[node name="scrap3" parent="." instance=ExtResource("9_7f2j3")]
+position = Vector2(1738, 928)
+rotation = 2.0715
+
+[node name="scrap24" parent="." instance=ExtResource("9_7f2j3")]
+position = Vector2(590, 40)
+rotation = 2.0715
+
+[node name="scrap17" parent="." instance=ExtResource("9_7f2j3")]
+position = Vector2(712, 736)
+rotation = 2.0715
+
+[node name="scrap12" parent="." instance=ExtResource("9_7f2j3")]
+position = Vector2(1699, 1004)
+rotation = 0.624492
+
+[node name="scrap4" parent="." instance=ExtResource("9_7f2j3")]
+position = Vector2(1366, 933)
+rotation = 2.86252
+
+[node name="rock" parent="." instance=ExtResource("6_783q6")]
+position = Vector2(1864, 490)
+
+[node name="scrap13" parent="." instance=ExtResource("8_6b7gk")]
+position = Vector2(1137, 1026)
+
+[node name="scrap14" parent="." instance=ExtResource("9_p7cqv")]
+position = Vector2(1185, 988)
+rotation = -0.933162
+
+[node name="scrap15" parent="." instance=ExtResource("9_p7cqv")]
+position = Vector2(1139, 511)
+rotation = -0.933162
+
+[node name="scrap20" parent="." instance=ExtResource("11_2epnx")]
+position = Vector2(687, 673)
+
+[node name="scrap21" parent="." instance=ExtResource("11_2epnx")]
+position = Vector2(702, 347)
+rotation = -1.45732

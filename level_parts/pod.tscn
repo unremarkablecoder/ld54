@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://3hee1b8htn4l"]
+
+[ext_resource type="Texture2D" uid="uid://bn26233q2sqfq" path="res://level_textures/atlas.png" id="1_lowfo"]
+[ext_resource type="Script" path="res://level_parts/pod.gd" id="1_s58k5"]
+[ext_resource type="Texture2D" uid="uid://l5jcwvasqt45" path="res://textures/circlefade.png" id="2_fuwpb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxok0"]
+atlas = ExtResource("1_lowfo")
+region = Rect2(512, 256, 256, 256)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pg1ru"]
+radius = 29.69
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_nr0l7"]
+blend_mode = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rieao"]
+size = Vector2(150, 130)
+
+[node name="pod" type="StaticBody2D" node_paths=PackedStringArray("light")]
+collision_layer = 2
+script = ExtResource("1_s58k5")
+light = NodePath("light")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(0, -3)
+scale = Vector2(0.295, 0.295)
+texture = SubResource("AtlasTexture_bxok0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(1, -2)
+shape = SubResource("CircleShape2D_pg1ru")
+
+[node name="light" type="Sprite2D" parent="."]
+modulate = Color(1, 0.619608, 0.129412, 1)
+material = SubResource("CanvasItemMaterial_nr0l7")
+position = Vector2(27, -32)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("2_fuwpb")
+
+[node name="docking_area" type="Area2D" parent="."]
+collision_layer = 4
+linear_damp_space_override = 4
+linear_damp = 0.3
+angular_damp_space_override = 4
+angular_damp = 0.2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="docking_area"]
+position = Vector2(1, -1)
+shape = SubResource("RectangleShape2D_rieao")

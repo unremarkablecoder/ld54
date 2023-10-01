@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://caog5o681qg2"]
+
+[ext_resource type="Texture2D" uid="uid://bn26233q2sqfq" path="res://level_textures/atlas.png" id="1_h0a8n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqyg8"]
+atlas = ExtResource("1_h0a8n")
+region = Rect2(1536, 1536, 512, 512)
+
+[node name="big_asteroid" type="StaticBody2D"]
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+texture = SubResource("AtlasTexture_nqyg8")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-30, -177, 43, -230, 134, -147, 197, -48, 238, 93, 151, 125, 100, 225, -3, 185, -102, 183, -123, 150, -207, 132, -223, 17, -240, -26, -215, -184, -124, -191, -81, -207)

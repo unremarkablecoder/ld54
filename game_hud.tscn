@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://di56ke8hol5hb"]
+
+[ext_resource type="Script" path="res://game_hud.gd" id="1_t4jcf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vtuy4"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_2g8ep"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_8xnei"]
+font_size = 36
+
+[node name="hud" type="CanvasLayer" node_paths=PackedStringArray("people_text", "hull_text", "pause_text")]
+process_mode = 3
+script = ExtResource("1_t4jcf")
+people_text = NodePath("people_text")
+hull_text = NodePath("hull_text")
+pause_text = NodePath("pause_text")
+
+[node name="people_text" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 43.0001
+offset_right = 543.0
+offset_bottom = 48.0
+grow_horizontal = 2
+text = "Cargo: 9999"
+label_settings = SubResource("LabelSettings_vtuy4")
+
+[node name="hull_text" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -260.0
+offset_right = -108.999
+offset_bottom = 26.0
+grow_horizontal = 2
+text = "Hull Integrity: 100%"
+label_settings = SubResource("LabelSettings_2g8ep")
+horizontal_alignment = 2
+
+[node name="pause_text" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.5005
+offset_top = -13.0
+offset_right = 75.5005
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "PAUSED!
+ESC again to exit. Enter to resume."
+label_settings = SubResource("LabelSettings_8xnei")
+horizontal_alignment = 1

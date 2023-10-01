@@ -1,0 +1,86 @@
+[gd_scene load_steps=13 format=3 uid="uid://bcqiixo3hwmpa"]
+
+[ext_resource type="Texture2D" uid="uid://utkaaxi878eq" path="res://level_textures/bg1.tres" id="1_2ii33"]
+[ext_resource type="PackedScene" uid="uid://caog5o681qg2" path="res://level_parts/big_asteroid.tscn" id="2_tj4oo"]
+[ext_resource type="PackedScene" uid="uid://bku70kpvpm7yj" path="res://level_parts/beam.tscn" id="3_wgia3"]
+[ext_resource type="PackedScene" uid="uid://qunlsbosjl06" path="res://level_parts/scrap2.tscn" id="4_onmty"]
+[ext_resource type="PackedScene" uid="uid://dql2yydp3lht" path="res://level_parts/scrap1.tscn" id="5_jdrtl"]
+[ext_resource type="PackedScene" uid="uid://csgutxuqatsfe" path="res://level_parts/rock.tscn" id="6_xalpq"]
+[ext_resource type="PackedScene" uid="uid://3hee1b8htn4l" path="res://level_parts/pod.tscn" id="7_trgfq"]
+[ext_resource type="PackedScene" uid="uid://bwep5re5437le" path="res://level_parts/scrap4.tscn" id="8_2t4fr"]
+[ext_resource type="PackedScene" uid="uid://b5s3csu0l50k5" path="res://level_parts/scrap5.tscn" id="9_p7cqv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qvyb2"]
+size = Vector2(1262.63, 52)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qqykn"]
+size = Vector2(112.625, 1091.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_in2fi"]
+size = Vector2(1874.81, 68)
+
+[node name="level" type="Node2D"]
+
+[node name="bg" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(974, 552)
+scale = Vector2(3.90826, 2.20269)
+texture = ExtResource("1_2ii33")
+
+[node name="start_pos" type="Node2D" parent="."]
+position = Vector2(280, 602)
+rotation = 1.46084
+
+[node name="big_asteroid" parent="." instance=ExtResource("2_tj4oo")]
+position = Vector2(1480, 55)
+
+[node name="big_asteroid2" parent="." instance=ExtResource("2_tj4oo")]
+position = Vector2(1850, 312)
+rotation = 3.99845
+
+[node name="big_asteroid6" parent="." instance=ExtResource("2_tj4oo")]
+position = Vector2(1840, 809)
+rotation = 3.30092
+
+[node name="beam2" parent="." instance=ExtResource("3_wgia3")]
+position = Vector2(1313, 840)
+rotation = 0.34131
+
+[node name="beam6" parent="." instance=ExtResource("3_wgia3")]
+position = Vector2(1505, 841)
+rotation = 2.46299
+
+[node name="scrap5" parent="." instance=ExtResource("4_onmty")]
+position = Vector2(1417, 893)
+
+[node name="scrap6" parent="." instance=ExtResource("5_jdrtl")]
+position = Vector2(1358, 907)
+
+[node name="rock2" parent="." instance=ExtResource("6_xalpq")]
+position = Vector2(1414, 830)
+rotation = 0.0351638
+
+[node name="pod" parent="." instance=ExtResource("7_trgfq")]
+position = Vector2(1382, 513)
+rotation = 0.301178
+
+[node name="scrap8" parent="." instance=ExtResource("8_2t4fr")]
+position = Vector2(1195, 925)
+rotation = -2.52623
+
+[node name="leave_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="leave_area"]
+position = Vector2(603.688, -17)
+shape = SubResource("RectangleShape2D_qvyb2")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="leave_area"]
+position = Vector2(-12, 541)
+shape = SubResource("RectangleShape2D_qqykn")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="leave_area"]
+position = Vector2(941.593, 1092)
+shape = SubResource("RectangleShape2D_in2fi")
+
+[node name="scrap7" parent="." instance=ExtResource("9_p7cqv")]
+position = Vector2(1284, 948)

@@ -1,0 +1,147 @@
+[gd_scene load_steps=15 format=3 uid="uid://cub5uqnbv8jgg"]
+
+[ext_resource type="Script" path="res://ship/ship.gd" id="1_pq80q"]
+[ext_resource type="AudioStream" uid="uid://b6d0d3xp8m5ug" path="res://audio/thruster_secondary.wav" id="4_hhhw0"]
+[ext_resource type="Texture2D" uid="uid://l5jcwvasqt45" path="res://textures/circlefade.png" id="5_7ud1v"]
+[ext_resource type="AudioStream" uid="uid://cuies1oyj7yxd" path="res://audio/thruster_main.wav" id="6_usigt"]
+[ext_resource type="Texture2D" uid="uid://bn26233q2sqfq" path="res://level_textures/atlas.png" id="7_4l4ou"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_frqfg"]
+size = Vector2(54, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gv6ak"]
+size = Vector2(40, 123)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_rydfu"]
+light_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_yh6fd"]
+offsets = PackedFloat32Array(0.651852, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_evkt1"]
+gradient = SubResource("Gradient_yh6fd")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dl03r"]
+lifetime_randomness = 0.2
+emission_shape = 3
+emission_box_extents = Vector3(7.76, 1, 1)
+particle_flag_disable_z = true
+direction = Vector3(0, 1, 0)
+spread = 18.47
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 300.0
+initial_velocity_max = 400.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 0.02
+scale_max = 0.04
+color = Color(0, 0, 0, 1)
+color_ramp = SubResource("GradientTexture1D_evkt1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bjht7"]
+lifetime_randomness = 0.2
+emission_shape = 3
+emission_box_extents = Vector3(7.76, 1, 1)
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 18.47
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 0.01
+scale_max = 0.02
+color = Color(0, 0, 0, 1)
+color_ramp = SubResource("GradientTexture1D_evkt1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l7p36"]
+lifetime_randomness = 0.2
+emission_shape = 3
+emission_box_extents = Vector3(5, 1, 1)
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 18.47
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 0.01
+scale_max = 0.02
+color = Color(0, 0, 0, 1)
+color_ramp = SubResource("GradientTexture1D_evkt1")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k2dwk"]
+atlas = ExtResource("7_4l4ou")
+region = Rect2(0, 0, 256, 256)
+
+[node name="ship" type="RigidBody2D" node_paths=PackedStringArray("thruster_main", "thruster_reverse", "thruster_right", "thruster_left", "thruster_main_sound", "thruster_secondary_sound")]
+position = Vector2(0, -0.33371)
+collision_mask = 6
+max_contacts_reported = 2
+contact_monitor = true
+can_sleep = false
+script = ExtResource("1_pq80q")
+thruster_main = NodePath("thruster_main")
+thruster_reverse = NodePath("thruster_reverse")
+thruster_right = NodePath("thruster_right")
+thruster_left = NodePath("thruster_left")
+thruster_main_sound = NodePath("thruster_main_sound")
+thruster_secondary_sound = NodePath("thruster_secondary_sound")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.38419e-07, 23.3337)
+shape = SubResource("RectangleShape2D_frqfg")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(2.38419e-07, -0.16629)
+shape = SubResource("RectangleShape2D_gv6ak")
+
+[node name="thruster_main" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_rydfu")
+position = Vector2(0, 43.3337)
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_dl03r")
+texture = ExtResource("5_7ud1v")
+lifetime = 0.2
+
+[node name="thruster_reverse" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_rydfu")
+position = Vector2(-1, -56.6663)
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_bjht7")
+texture = ExtResource("5_7ud1v")
+lifetime = 0.2
+
+[node name="thruster_right" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_rydfu")
+position = Vector2(-21, -48.6663)
+rotation = -1.39626
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_l7p36")
+texture = ExtResource("5_7ud1v")
+lifetime = 0.2
+
+[node name="thruster_left" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_rydfu")
+position = Vector2(21, -48.666)
+rotation = 1.39626
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_l7p36")
+texture = ExtResource("5_7ud1v")
+lifetime = 0.2
+
+[node name="thruster_main_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_usigt")
+
+[node name="thruster_secondary_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_hhhw0")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(0.546875, 0.546875)
+texture = SubResource("AtlasTexture_k2dwk")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

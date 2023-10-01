@@ -1,0 +1,285 @@
+[gd_scene load_steps=9 format=3 uid="uid://dk563yb1kk2hd"]
+
+[ext_resource type="Script" path="res://menu/menu.gd" id="1_4c8jm"]
+[ext_resource type="Texture2D" uid="uid://bn26233q2sqfq" path="res://level_textures/atlas.png" id="2_28ib6"]
+
+[sub_resource type="Gradient" id="Gradient_gchbe"]
+colors = PackedColorArray(0, 0, 0, 1, 0.692891, 0.518695, 3.46541e-06, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_okwl6"]
+gradient = SubResource("Gradient_gchbe")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0.824786, 0.119658)
+
+[sub_resource type="LabelSettings" id="LabelSettings_r3mx8"]
+font_size = 80
+
+[sub_resource type="LabelSettings" id="LabelSettings_iu22j"]
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_ochhf"]
+font_size = 80
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tsnyx"]
+atlas = ExtResource("2_28ib6")
+region = Rect2(0, 0, 256, 256)
+
+[node name="menu" type="Control" node_paths=PackedStringArray("win_menu", "station_menu", "lose_menu", "selection_arrow", "win_stats_text", "win_continue_label", "lose_retry", "lose_main_menu", "level_labels")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4c8jm")
+win_menu = NodePath("win")
+station_menu = NodePath("station")
+lose_menu = NodePath("lose")
+selection_arrow = NodePath("arrow")
+win_stats_text = NodePath("win/win_stats")
+win_continue_label = NodePath("win/win_continue")
+lose_retry = NodePath("lose/Retry")
+lose_main_menu = NodePath("lose/MainMenu")
+level_labels = [NodePath("station/Level1"), NodePath("station/Level2"), NodePath("station/Level3"), NodePath("station/Level4")]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_okwl6")
+
+[node name="win" type="Control" parent="."]
+visible = false
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="win"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -131.0
+offset_top = -295.0
+offset_right = 222.0
+offset_bottom = -182.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "GOOD JOB"
+label_settings = SubResource("LabelSettings_r3mx8")
+
+[node name="win_stats" type="Label" parent="win"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -91.0
+offset_right = 300.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "You rescued..."
+label_settings = SubResource("LabelSettings_iu22j")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="win_continue" type="Label" parent="win"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = 109.0
+offset_right = 140.0
+offset_bottom = 192.855
+grow_horizontal = 2
+grow_vertical = 2
+text = "Continue"
+label_settings = SubResource("LabelSettings_iu22j")
+autowrap_mode = 3
+
+[node name="station" type="Control" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="station"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.5
+offset_top = -286.0
+offset_right = 35.5
+offset_bottom = -260.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "SELECT LEVEL"
+label_settings = SubResource("LabelSettings_ochhf")
+
+[node name="Level1" type="Label" parent="station"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -90.0
+offset_right = 140.0
+offset_bottom = -6.14502
+grow_horizontal = 2
+grow_vertical = 2
+text = "Level 1"
+label_settings = SubResource("LabelSettings_iu22j")
+autowrap_mode = 3
+
+[node name="Level2" type="Label" parent="station"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = 10.0
+offset_right = 140.0
+offset_bottom = 93.855
+grow_horizontal = 2
+grow_vertical = 2
+text = "Level 2"
+label_settings = SubResource("LabelSettings_iu22j")
+autowrap_mode = 3
+
+[node name="Level3" type="Label" parent="station"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = 110.0
+offset_right = 140.0
+offset_bottom = 193.855
+grow_horizontal = 2
+grow_vertical = 2
+text = "Level 3"
+label_settings = SubResource("LabelSettings_iu22j")
+autowrap_mode = 3
+
+[node name="Level4" type="Label" parent="station"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = 210.0
+offset_right = 140.0
+offset_bottom = 293.855
+grow_horizontal = 2
+grow_vertical = 2
+text = "Level 4"
+label_settings = SubResource("LabelSettings_iu22j")
+autowrap_mode = 3
+
+[node name="lose" type="Control" parent="."]
+visible = false
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="lose"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.5
+offset_top = -286.0
+offset_right = 35.5
+offset_bottom = -260.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "YOU LOST"
+label_settings = SubResource("LabelSettings_ochhf")
+
+[node name="Retry" type="Label" parent="lose"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -91.0
+offset_right = 140.0
+offset_bottom = -7.14502
+grow_horizontal = 2
+grow_vertical = 2
+text = "Retry"
+label_settings = SubResource("LabelSettings_iu22j")
+autowrap_mode = 3
+
+[node name="MainMenu" type="Label" parent="lose"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = 8.0
+offset_right = 140.0
+offset_bottom = 91.855
+grow_horizontal = 2
+grow_vertical = 2
+text = "Main Menu"
+label_settings = SubResource("LabelSettings_iu22j")
+autowrap_mode = 3
+
+[node name="arrow" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 756.0
+offset_top = 434.0
+offset_right = 1012.0
+offset_bottom = 690.0
+rotation = 1.5708
+scale = Vector2(0.375, 0.375)
+texture = SubResource("AtlasTexture_tsnyx")

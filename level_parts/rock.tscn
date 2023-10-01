@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://csgutxuqatsfe"]
+
+[ext_resource type="Texture2D" uid="uid://bn26233q2sqfq" path="res://level_textures/atlas.png" id="1_0kw45"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xp6d6"]
+atlas = ExtResource("1_0kw45")
+region = Rect2(1024, 0, 256, 256)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0fcxl"]
+radius = 29.69
+
+[node name="rock" type="StaticBody2D"]
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(0, -3)
+scale = Vector2(0.295, 0.295)
+texture = SubResource("AtlasTexture_xp6d6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-1, 0)
+shape = SubResource("CircleShape2D_0fcxl")

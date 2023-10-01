@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cm7v6i6cy2l0c"]
+
+[ext_resource type="Texture2D" uid="uid://bn26233q2sqfq" path="res://level_textures/atlas.png" id="1_cwqg8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_snsv1"]
+atlas = ExtResource("1_cwqg8")
+region = Rect2(768, 256, 256, 256)
+
+[node name="person" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.095, 0.095)
+texture = SubResource("AtlasTexture_snsv1")
